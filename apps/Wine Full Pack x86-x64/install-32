@@ -1,0 +1,46 @@
+#!/bin/bash
+
+DIRECTORY="$(dirname "$(dirname "$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )")")"
+
+function error {
+  echo -e "\\e[91m$1\\e[39m"
+  exit 1
+}
+
+sudo apt install -y gvfs || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y gphoto2 || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y gpm || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y libvisual-0.4-plugins || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y gstreamer1.0-tools || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y odbc-postgresql || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y tdsodbc || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y unixodbc-bin || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y libportaudio2 || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y sndiod || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y cups-bsd || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y ttf-mscorefonts-installer || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y q4wine || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y winbind || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y wine-binfmt || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y dosbox || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y exe-thumbnailer || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+sudo apt install -y kio-extras || error "ERROR: unexpected fatal error while installing dependecy. Skipping..."
+echo Dependecies for Wine installed succesfully. Now installing next pkgs:
+echo wine, wine32, wine32-preloader, wine32-tools, winetricks, winpr-utils, playonlinux.
+echo First, Wine.
+sudo apt install -y wine || error "ERROR: Cannot install package wine"
+echo Then, wine32
+sudo apt install -y wine32 || error "ERROR: Cannot install package wine32"
+echo Now, wine32-preloader, but whatever you do, DO NOT run Wine right now!
+sudo apt install -y wine32-preloader || error "ERROR: Cannot install package wine32-preloader"
+echo Next, wine32-tools
+sudo apt install -y wine32-tools || error "ERROR: Cannot install package wine32-tools"
+echo Next, winetricks
+sudo apt install -y winetricks || error "ERROR: Cannot install package winetricks"
+echo im getting sick of writing this script
+echo next, winpr-utils
+sudo apt install -y winpr-utils || error "ERROR : Cannot install package winpr-utils"
+echo And finally playonlinux
+sudo apt install -y playonlinux || error "FINAL ERROR: Cannot install pkg playonlinux"
+echo FINALLY I FINISHED THIS SCRIPT I GOT VERY SICK WHILE WRITING COMMANDS
+exit 0

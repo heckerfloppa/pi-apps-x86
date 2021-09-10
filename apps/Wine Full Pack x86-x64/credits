@@ -1,0 +1,9 @@
+Full pack of Wine includes:
+preloader - prelinked binary loader
+tools - developer tools
+winetricks - simple tool to work around common problems in Wine
+winpr-utils - Windows Portable Runtime library command line utilities
+playonlinux - front-end for Wine
+===============
+dependecies - gvfs libgd-tools gphoto2 gpm libvisual-0.4-plugins gstreamer1.0-tools libmyodbc odbc-postgresql tdsodbc unixodbc-bin libportaudio2 sndiod cups-bsd ttf-mscorefonts-installer opencl-icd q4wine winbind >winetricks< >playonlinux< wine-binfmt dosbox exe-thumbnailer kio-extras
+===============

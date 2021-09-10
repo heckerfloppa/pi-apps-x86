@@ -1,0 +1,34 @@
+#!/bin/bash
+
+DIRECTORY="$(dirname "$(dirname "$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )")")"
+
+function error {
+  echo -e "\\e[91m$1\\e[39m"
+  exit 1
+}
+
+sudo apt remove gvfs || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove gphoto2 || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove gpm || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove libvisual-0.4-plugins || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove gstreamer1.0-tools || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove odbc-postgresql || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove tdsodbc || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove unixodbc-bin || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove libportaudio2 || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove sndiod || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove cups-bsd || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove ttf-mscorefonts-uninstaller || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove q4wine || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove winbind || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove wine-binfmt || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove dosbox || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove exe-thumbnailer || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+sudo apt remove kio-extras || error "ERROR: unexpected fatal error while uninstalling dependecy. Skipping..."
+echo Dependecies for Wine uninstalled succesfully. Now uninstalling next pkgs:
+echo wine, winetricks, winpr-utils, playonlinux.
+sudo apt remove wine || error "unexpected fatal error while uninstalling"
+sudo apt remove winetricks || error "unexpected fatal error while uninstalling"
+sudo apt remove winpr-utils || error "unexpected fatal error while uninstalling"
+sudo apt remove playonlinux || error "unexpected fatal error while uninstalling"
+exit 0
